@@ -2,7 +2,7 @@ import { Navbar, Nav, Container, NavDropdown, Badge } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
 
@@ -28,7 +28,9 @@ const Header = () => {
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
-          <Navbar.Brand href="/">MERN App</Navbar.Brand>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Navbar.Brand>MERN App</Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
