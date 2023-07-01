@@ -14,7 +14,15 @@ const Header = () => {
 
   const [logoutApiCall] = useLogoutMutation();
 
-
+  const logoutHandler = async () => {
+    try {
+      await logoutApiCall().unwrap();
+      dispatch(logout());
+      navigate("/login");
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <header>
