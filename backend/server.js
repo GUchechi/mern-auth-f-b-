@@ -33,6 +33,8 @@ app.use("/api/users", userRoutes);
 
 app.get("/", (req, res) => res.send("server is ready!!!"));
 
-
+// From errorMiddleware
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(port, () => console.log(`Server stared on post ${port}`));
