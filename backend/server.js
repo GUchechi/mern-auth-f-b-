@@ -37,4 +37,4 @@ app.get("/", (req, res) => res.send("server is ready!!!"));
 app.use(notFound);
 app.use(errorHandler);
 
-app.listen(port, () => console.log(`Server stared on post ${port}`));
+app.listen(port, () => console.log(`Server started on post ${port}`));
