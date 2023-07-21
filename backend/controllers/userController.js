@@ -34,7 +34,7 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Auth user & get token
+// @desc    Auth user & get token?
 // route    POST /api/users/auth
 // @access  Public
 const authUser = asyncHandler(async (req, res) => {
@@ -70,7 +70,6 @@ const logoutUser = asyncHandler(async (req, res) => {
 // @desc    Get user profile
 // route    GET /api/users/profile
 // @access  Private
-
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = {
     _id: req.user._id,
@@ -84,7 +83,6 @@ const getUserProfile = asyncHandler(async (req, res) => {
 // @desc   Update user profile
 // route    PUT /api/users/profile
 // @access  Private
-
 const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
