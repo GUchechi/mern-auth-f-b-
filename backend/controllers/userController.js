@@ -108,11 +108,14 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 
     const updatedUser = await user.save();
 
+     // Format the birthday using date-fns 
+     const formattedBirthday = format(new Date(updatedUser.birthday), 'yyyy-MM-dd');
+
     res.json({
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
-      birthday: updatedUser.birthday,
+      birthday: formattedBirthday,
       gender: updatedUser.gender,
     });
   } else {
