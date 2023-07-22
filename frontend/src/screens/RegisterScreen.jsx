@@ -13,6 +13,9 @@ const RegisterScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [gender, setGender] = useState("");
+  const [phone, setPhone] = useState("");
+  const [birthday, setBirthday] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -75,6 +78,7 @@ const RegisterScreen = () => {
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
+
         <Form.Group className="my-2" controlId="confirmPassword">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
@@ -83,6 +87,38 @@ const RegisterScreen = () => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control>
+        </Form.Group>
+
+        <Form.Group className="my-2" controlId="gender">
+          <Form.Label>Gender</Form.Label>
+          <Form.Control
+            as="select"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          >
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </Form.Control>
+        </Form.Group>
+
+        <Form.Group className="my-2" controlId="phone">
+          <Form.Label>Phone</Form.Label>
+          <Form.Control
+            type="tel" // Use "tel" type for phone input
+            placeholder="Enter phone number"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group className="my-2" controlId="birthday">
+          <Form.Label>Birthday</Form.Label>
+          <Form.Control
+            type="date"
+            value={birthday}
+            onChange={(e) => setBirthday(e.target.value)}
+          />
         </Form.Group>
 
         {isLoading && <Loader />}
