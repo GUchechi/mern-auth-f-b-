@@ -1,4 +1,5 @@
 import asyncHandler from "express-async-handler";
+import { format } from "date-fns";
 import User from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
 
@@ -25,13 +26,16 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 
   if (user) {
+    // Format the birthday using date-fns
+    const formattedBirthday = format(new Date(user.birthday), "yyyy-MM-dd");
+
     generateToken(res, user._id);
     res.status(201).json({
       _id: user._id,
       name: user.name,
       email: user.email,
       phone: user.phone,
-      birthday: user.birthday,
+      birthday: formattedBirthday,
       gender: user.gender,
     });
   } else {
