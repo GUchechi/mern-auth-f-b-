@@ -59,6 +59,7 @@ const RegisterScreen = () => {
           gender,
         }).unwrap();
         dispatch(setCredentials({ ...res }));
+        toast.success("Profile registered successfully");
         navigate("/");
       } catch (err) {
         toast.error(err?.data?.message || err.error);
