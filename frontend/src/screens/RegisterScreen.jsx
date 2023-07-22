@@ -19,6 +19,17 @@ const RegisterScreen = () => {
     birthday: "",
   });
 
+  const { name, email, password, confirmPassword, gender, phone, birthday } =
+    formData;
+
+  // Onchange
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -55,9 +66,10 @@ const RegisterScreen = () => {
           <Form.Label>Name</Form.Label>
           <Form.Control
             type="name"
+            name="name"
             placeholder="Enter name"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={onChange}
           ></Form.Control>
         </Form.Group>
 
@@ -65,9 +77,10 @@ const RegisterScreen = () => {
           <Form.Label>Email Address</Form.Label>
           <Form.Control
             type="email"
+            name="email"
             placeholder="Enter email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={onChange}
           ></Form.Control>
         </Form.Group>
 
@@ -75,9 +88,10 @@ const RegisterScreen = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
+            name="password"
             placeholder="Enter password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={onChange}
           ></Form.Control>
         </Form.Group>
 
@@ -85,9 +99,10 @@ const RegisterScreen = () => {
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
             type="password"
+            name="confirmPassword"
             placeholder="Confirm password"
             value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={onChange}
           ></Form.Control>
         </Form.Group>
 
@@ -95,8 +110,9 @@ const RegisterScreen = () => {
           <Form.Label>Gender</Form.Label>
           <Form.Control
             as="select"
+            name="gender"
             value={gender}
-            onChange={(e) => setGender(e.target.value)}
+            onChange={onChange}
           >
             <option value="">Select Gender</option>
             <option value="male">Male</option>
@@ -109,8 +125,9 @@ const RegisterScreen = () => {
           <Form.Control
             type="tel" // Use "tel" type for phone input
             placeholder="Enter phone number"
+            name="phone"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={onChange}
           />
         </Form.Group>
 
@@ -118,8 +135,9 @@ const RegisterScreen = () => {
           <Form.Label>Birthday</Form.Label>
           <Form.Control
             type="date"
+            name="birthday"
             value={birthday}
-            onChange={(e) => setBirthday(e.target.value)}
+            onChange={onChange}
           />
         </Form.Group>
 
