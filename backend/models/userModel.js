@@ -16,6 +16,19 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    phone: {
+      type: Number,
+      required: true,
+    },
+    birthday: {
+      type: Date,
+      required: true,
+    },
+    gender: {
+      type: String,
+      enum: ["male", "female"], // Restricted to these two options
+      required: true,
+    },
   },
   {
     timestamps: true,

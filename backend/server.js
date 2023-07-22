@@ -16,8 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-// This is important. We are accessing the cookie using req.cookies.jwt. 
+// This is important. We are accessing the cookie using req.cookies.jwt.
 // In order to do that, we need to add the cookie-parser middleware
 app.use(cookieParser());
 

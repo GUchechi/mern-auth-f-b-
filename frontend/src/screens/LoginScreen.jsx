@@ -73,7 +73,7 @@ const LoginScreen = () => {
           New Customer? <Link to={`/register`}>Register</Link>
         </Col>
       </Row>
-    </FormContainer>
+    </FormContainer> 
   );
 };
 
