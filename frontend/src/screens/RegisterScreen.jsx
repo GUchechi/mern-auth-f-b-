@@ -9,13 +9,15 @@ import { toast } from "react-toastify";
 import Loader from "../components/Loader";
 
 const RegisterScreen = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [gender, setGender] = useState("");
-  const [phone, setPhone] = useState("");
-  const [birthday, setBirthday] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    gender: "",
+    phone: "",
+    birthday: "",
+  });
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
